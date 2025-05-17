@@ -92,7 +92,7 @@ img {
     text-align: center;
     position: relative;
     color: var(--primary);
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
 }
 
 .section-title::after {
@@ -420,7 +420,7 @@ nav {
     font-size: 1.5rem;
     margin-bottom: 15px;
     color: var(--primary);
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
 }
 
 /* How It Works Section */
@@ -479,7 +479,7 @@ nav {
     font-size: 1.2rem;
     margin-bottom: 10px;
     color: var(--primary);
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
 }
 
 .step p {
@@ -553,7 +553,7 @@ nav {
     font-size: 1.5rem;
     margin: 15px 0 5px;
     color: var(--primary);
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
 }
 
 .embla__buttons {
@@ -709,7 +709,7 @@ nav {
 .feature h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
 }
 
 .cta-box {
@@ -725,7 +725,7 @@ nav {
 .cta-box h3 {
     font-size: 1.8rem;
     margin-bottom: 20px;
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
 }
 
 /* Team Section */
@@ -757,7 +757,7 @@ nav {
     font-size: 1.5rem;
     margin-bottom: 5px;
     color: var(--primary);
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
 }
 
 .team-member p {
@@ -799,7 +799,7 @@ nav {
     font-size: 1.2rem;
     margin-bottom: 5px;
     color: var(--primary);
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
 }
 
 .social-media {
@@ -929,7 +929,7 @@ footer {
     font-size: 1.5rem;
     margin-bottom: 10px;
     color: var(--primary);
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
 }
 
 /* Responsive Design */
