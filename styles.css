@@ -25,7 +25,7 @@ Color Palette:
     --footer-bg: #35503F;
     --footer-text: #fff;
     --transparent: transparent;
-    --heading-font: 'Bebas Neue', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --heading-font: 'Reross Quadratic', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 [data-theme="dark"] {
@@ -54,6 +54,15 @@ Color Palette:
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Definição da fonte local */
+@font-face {
+    font-family: 'Reross Quadratic';
+    src: url('./fonts/Reross_Quadratic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 body {
@@ -1023,24 +1032,19 @@ footer {
         transform: translateX(16px);
     }
     
-    .hero {
-        padding-top: 100px;
+    /* Ensure logo is visible on small screens */
+    .logo h1 {
+        font-size: 1.6rem;
+    }
+    
+    /* Smaller padding for header on small screens */
+    header .container {
+        padding: 10px 5px;
     }
     
     .step {
-        flex: 0 0 calc(33.33% - 30px);
-    }
-    
-    .hero-content h2 {
-        font-size: 2.5rem;
-    }
-    
-    .step {
-        flex: 0 0 calc(50% - 20px);
-    }
-    
-    .before-after {
-        flex-direction: column;
+        flex: 0 0 100%;
+        margin-bottom: 15px;
     }
 }
 
