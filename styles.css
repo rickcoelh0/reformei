@@ -260,7 +260,7 @@ header .container {
     font-size: 2rem;
     font-weight: 400;
     color: var(--primary);
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
     margin: 0;
     white-space: nowrap;
     line-height: 1;
@@ -853,7 +853,7 @@ footer {
 .footer-logo h2 {
     font-size: 2rem;
     margin-bottom: 15px;
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
 }
 
 .footer-logo h2 .dot {
@@ -865,7 +865,7 @@ footer {
     margin-bottom: 20px;
     position: relative;
     padding-bottom: 10px;
-    font-family: 'Reross Quadratic', 'Impact', sans-serif;
+    font-family: var(--heading-font);
 }
 
 .footer-links h3::after, .footer-newsletter h3::after {
