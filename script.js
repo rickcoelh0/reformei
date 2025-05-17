@@ -185,40 +185,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (quoteForm) {
         quoteForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulate form submission
             const submitButton = quoteForm.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            
             submitButton.disabled = true;
             submitButton.textContent = 'Enviando...';
-            
-            // Simulate API call
-            setTimeout(() => {
-                // Show success message
-                const formElements = quoteForm.querySelectorAll('input, select, textarea, button');
-                formElements.forEach(el => el.style.display = 'none');
-                
-                const successMessage = document.createElement('div');
-                successMessage.className = 'success-message';
-                successMessage.innerHTML = `
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Solicitação enviada com sucesso!</h3>
-                    <p>Entraremos em contato em breve.</p>
-                `;
-                
-                quoteForm.appendChild(successMessage);
-                
-                // Reset form after delay
-                setTimeout(() => {
-                    formElements.forEach(el => el.style.display = '');
-                    successMessage.remove();
-                    quoteForm.reset();
-                    submitButton.disabled = false;
-                    submitButton.textContent = originalText;
-                }, 5000);
-            }, 1500);
         });
     }
     
