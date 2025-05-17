@@ -172,6 +172,10 @@ input:checked + .slider:before {
     transform: translateX(18px);
 }
 
+[data-theme="dark"] .slider:before {
+    background-color: var(--bg-light);
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
@@ -211,6 +215,17 @@ input:checked + .slider:before {
     transform: translateY(-3px);
     border: none;
     box-shadow: 0 6px 15px rgba(53, 80, 63, 0.3);
+}
+
+[data-theme="dark"] .btn.secondary {
+    background-color: var(--bg-off);
+    color: var(--text);
+    box-shadow: 0 4px 10px var(--shadow-dark);
+}
+
+[data-theme="dark"] .btn.secondary:hover {
+    background-color: var(--text);
+    color: var(--bg-off);
 }
 
 /* Header and Navigation */
@@ -576,7 +591,8 @@ nav {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: var(--bg-light);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #333;
     border: none;
     cursor: pointer;
     display: flex;
@@ -588,6 +604,16 @@ nav {
 
 .embla__button:hover {
     background-color: var(--secondary);
+    color: white;
+}
+
+[data-theme="dark"] .embla__button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--text);
+}
+
+[data-theme="dark"] .embla__button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
 }
 
@@ -914,6 +940,28 @@ footer {
 .newsletter-form button {
     border-radius: 0 50px 50px 0;
     padding: 0 20px;
+}
+
+/* Style for newsletter button in light mode footer */
+footer .newsletter-form button.btn.primary {
+    background-color: var(--secondary);
+    color: white;
+}
+
+footer .newsletter-form button.btn.primary:hover {
+    background-color: white;
+    color: var(--secondary);
+}
+
+/* Style for newsletter button in dark mode footer */
+[data-theme="dark"] footer .newsletter-form button.btn.primary {
+    background-color: var(--primary); /* White background */
+    color: #000; /* Use black text for better contrast */
+}
+
+[data-theme="dark"] footer .newsletter-form button.btn.primary:hover {
+     background-color: var(--bg-off); /* Darker background on hover */
+     color: var(--primary); /* White text on hover */
 }
 
 .footer-bottom {
