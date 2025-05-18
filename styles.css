@@ -358,6 +358,10 @@ nav {
     width: 100%;
 }
 
+.menu.active li a {
+    color: var(--primary);
+}
+
 .mobile-menu-icon {
     display: none;
     font-size: 1.5rem;
@@ -731,6 +735,10 @@ nav {
     color: white;
 }
 
+.express .section-subtitle {
+    color: white;
+}
+
 .express-features {
     display: flex;
     flex-wrap: wrap;
@@ -1066,6 +1074,7 @@ footer .newsletter-form button.btn.primary:hover {
         display: block;
         padding: 8px 0;
         font-size: 1.1rem;
+        color: var(--text);
     }
     
     .mobile-menu-icon {
@@ -1286,4 +1295,9 @@ footer .newsletter-form button.btn.primary:hover {
     .menu {
         gap: 1.2rem;
     }
+}
+
+/* Ensure active mobile menu links are black */
+nav .menu.active li a {
+    color: var(--text) !important; /* Use !important to ensure override */
 } 
