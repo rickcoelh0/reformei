@@ -13,6 +13,13 @@
     <meta property="og:image" content="https://www.reformei.com.br/images/og-image.jpg">
     <title>Reformei | Reformas de Alto Padrão</title>
     
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Reformei">
+    <link rel="manifest" href="manifest.json">
+    
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@seuperfildotwitter"> <!-- Opcional: Substitua pelo seu @ do Twitter -->
@@ -450,5 +457,20 @@
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
     <script src="script.js"></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 </body>
 </html> 

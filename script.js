@@ -101,25 +101,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Scroll Reveal Animation
+    // ScrollReveal Animations
     const sr = ScrollReveal({
         origin: 'bottom',
-        distance: '30px',
+        distance: '60px',
         duration: 1000,
         delay: 200,
         reset: false
     });
     
-    sr.reveal('.hero-content', {});
-    sr.reveal('.step', { interval: 200 });
-    sr.reveal('.embla', {});
-    sr.reveal('.quote-form', {});
-    sr.reveal('.partners-carousel', {});
-    sr.reveal('.feature', { interval: 200 });
-    sr.reveal('.cta-box', {});
-    sr.reveal('.team-member', { interval: 200 });
-    sr.reveal('.contact-info', {});
-    sr.reveal('.contact-map', { delay: 300 });
+    // Hero Section
+    sr.reveal('.hero-content', {
+        delay: 0,
+        distance: '100px'
+    });
+    
+    // Steps Section
+    sr.reveal('.step', {
+        interval: 200
+    });
+    
+    // Portfolio Section
+    sr.reveal('.embla__slide', {
+        interval: 300
+    });
+    
+    // Quote Section
+    sr.reveal('.quote-form', {
+        delay: 0,
+        distance: '50px'
+    });
+    
+    // Team Section
+    sr.reveal('.team-member', {
+        interval: 200
+    });
+    
+    // Contact Section
+    sr.reveal('.contact-info', {
+        delay: 0,
+        distance: '50px'
+    });
     
     // Transparent Header Effect
     const header = document.querySelector('header');
@@ -227,4 +249,42 @@ document.addEventListener('DOMContentLoaded', function() {
             partnersTrack.appendChild(clone);
         });
     }
-}); 
+});
+
+// Lazy Loading Images
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+});
+
+// Image Optimization
+function optimizeImages() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        // Add loading="lazy" to all images
+        img.loading = 'lazy';
+        
+        // Add decoding="async" to all images
+        img.decoding = 'async';
+        
+        // Add alt text if missing
+        if (!img.alt) {
+            img.alt = 'Imagem Reformei';
+        }
+    });
+}
+
+// Call image optimization on load
+window.addEventListener('load', optimizeImages); 
