@@ -13,9 +13,14 @@
     <meta property="og:image" content="https://www.reformei.com.br/images/og-image.jpg">
     <title>Reformei | Reformas de Alto Padrão</title>
     
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="fonts/Reross_Quadratic.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@seuperfildotwitter"> <!-- Opcional: Substitua pelo seu @ do Twitter -->
+    <meta name="twitter:site" content="@seuperfildotwitter">
     <meta name="twitter:title" content="Reformei | Reformas de Alto Padrão">
     <meta name="twitter:description" content="Transforme seu espaço com qualidade e sofisticação. Especialistas em reformas de alto padrão para casas e apartamentos.">
     <meta name="twitter:image" content="https://www.reformei.com.br/images/og-image.jpg">
@@ -36,11 +41,12 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     
     <!-- Scripts -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+    <script src="https://unpkg.com/scrollreveal" defer></script>
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -449,6 +455,5 @@
         // Update current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
-    <script src="script.js"></script>
 </body>
 </html> 

@@ -71,6 +71,9 @@ body {
     color: var(--text);
     background-color: var(--bg-light);
     transition: background-color 0.3s ease, color 0.3s ease;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -85,6 +88,8 @@ ul {
 
 img {
     max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .container {
@@ -93,6 +98,39 @@ img {
     margin: 0 auto;
     padding: 0 15px;
     box-sizing: border-box;
+}
+
+/* Otimizações de performance para animações */
+.hero-content,
+.step,
+.service-card,
+.team-member {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Otimizações para carregamento de imagens */
+.img-placeholder {
+    background-color: var(--bg-off);
+    position: relative;
+    overflow: hidden;
+}
+
+.img-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 .section-title {
@@ -358,10 +396,6 @@ nav {
     width: 100%;
 }
 
-.menu.active li a {
-    color: var(--primary);
-}
-
 .mobile-menu-icon {
     display: none;
     font-size: 1.5rem;
@@ -571,12 +605,6 @@ nav {
     z-index: 1;
 }
 
-.img-placeholder {
-    height: 300px;
-    background-color: var(--border);
-    border-radius: 10px;
-}
-
 .embla__slide h3 {
     font-size: 1.5rem;
     margin: 15px 0 5px;
@@ -732,10 +760,6 @@ nav {
 }
 
 .express .section-title {
-    color: white;
-}
-
-.express .section-subtitle {
     color: white;
 }
 
@@ -1074,7 +1098,6 @@ footer .newsletter-form button.btn.primary:hover {
         display: block;
         padding: 8px 0;
         font-size: 1.1rem;
-        color: var(--text);
     }
     
     .mobile-menu-icon {
@@ -1295,9 +1318,4 @@ footer .newsletter-form button.btn.primary:hover {
     .menu {
         gap: 1.2rem;
     }
-}
-
-/* Ensure active mobile menu links are black */
-nav .menu.active li a {
-    color: var(--text) !important; /* Use !important to ensure override */
 } 

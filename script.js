@@ -104,45 +104,51 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll Reveal Animation
     const sr = ScrollReveal({
         origin: 'bottom',
-        distance: '30px',
+        distance: '60px',
         duration: 1000,
         delay: 200,
-        reset: false
+        easing: 'cubic-bezier(0.5, 0, 0, 1)',
+        reset: false,
+        useDelay: 'always',
+        viewFactor: 0.2
     });
     
-    sr.reveal('.hero-content', {});
-    sr.reveal('.step', { interval: 200 });
-    sr.reveal('.embla', {});
-    sr.reveal('.quote-form', {});
-    sr.reveal('.partners-carousel', {});
-    sr.reveal('.feature', { interval: 200 });
-    sr.reveal('.cta-box', {});
-    sr.reveal('.team-member', { interval: 200 });
-    sr.reveal('.contact-info', {});
-    sr.reveal('.contact-map', { delay: 300 });
+    sr.reveal('.hero-content', { delay: 200 });
+    sr.reveal('.step', { interval: 100 });
+    sr.reveal('.service-card', { interval: 100 });
+    sr.reveal('.team-member', { interval: 100 });
+    sr.reveal('.feature', { interval: 100 });
     
     // Transparent Header Effect
     const header = document.querySelector('header');
     
-    function checkHeaderTransparency() {
-        if (window.scrollY < 50) {
-            header.classList.add('top');
-        } else {
-            header.classList.remove('top');
-            header.classList.add('sticky');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll <= 0) {
+            header.classList.remove('scroll-up');
+            header.classList.remove('sticky');
+            return;
         }
         
-        if (window.scrollY === 0) {
-            header.classList.add('top');
+        if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+            header.classList.remove('scroll-up');
+            header.classList.add('scroll-down');
+        } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+            header.classList.remove('scroll-down');
+            header.classList.add('scroll-up');
+        }
+        
+        if (currentScroll > 100) {
+            header.classList.add('sticky');
+        } else {
             header.classList.remove('sticky');
         }
-    }
-    
-    // Initial check
-    checkHeaderTransparency();
-    
-    // Check on scroll
-    window.addEventListener('scroll', checkHeaderTransparency);
+        
+        lastScroll = currentScroll;
+    }, { passive: true });
     
     // Smooth Scroll for Menu Links
     const menuLinks = document.querySelectorAll('.menu a, .footer-links a, .hero-buttons a, a.btn:not([target="_blank"])');
@@ -227,4 +233,20 @@ document.addEventListener('DOMContentLoaded', function() {
             partnersTrack.appendChild(clone);
         });
     }
+    
+    // Lazy loading de imagens
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
 }); 
