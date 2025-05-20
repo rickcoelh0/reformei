@@ -59,14 +59,12 @@ html {
 /* Definição da fonte local */
 @font-face {
     font-family: 'Reross Quadratic';
-    src: url('./fonts/Reross_Quadratic.otf') format('opentype');
+    src: url('./fonts/Reross_Quadratic.woff2') format('woff2'),
+         url('./fonts/Reross_Quadratic.otf') format('opentype'); /* Fallback */
     font-weight: normal;
     font-style: normal;
     font-display: swap;
     unicode-range: U+000-5FF;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
-    text-rendering: optimizeLegibility;
 }
 
 body {
