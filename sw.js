@@ -6,6 +6,8 @@ const urlsToCache = [
     '/script.js',
     '/images/background.jpg',
     '/fonts/Reross_Quadratic.woff2',
+    '/404.html',
+    '/obrigado.html',
     'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
 ];

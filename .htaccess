@@ -13,26 +13,6 @@ Header set Referrer-Policy "strict-origin-when-cross-origin"
 Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 Header set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';"
 
-# Cache Control
-<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|webp)$">
-    Header set Cache-Control "max-age=31536000, public"
-</FilesMatch>
-
-# Prevent directory listing
-Options -Indexes
-
-# Protect .htaccess file
-<Files .htaccess>
-    Order allow,deny
-    Deny from all
-</Files>
-
-# Protect sensitive files
-<FilesMatch "^(wp-config\.php|php\.ini|\.env|\.git)">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
-
 # Enable compression
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/plain
@@ -47,62 +27,36 @@ Options -Indexes
     AddOutputFilterByType DEFLATE application/json
 </IfModule>
 
-# Custom error pages
-ErrorDocument 404 /404.html
-ErrorDocument 500 /404.html
-
-# Prevent access to hidden files
-<FilesMatch "^\.">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
-
-# Cache de arquivos estáticos
+# Cache Control
 <IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType image/jpg "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
-  ExpiresByType text/html "access plus 1 week"
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/html "access plus 1 week"
 </IfModule>
 
-# Set security headers
-<IfModule mod_headers.c>
-    Header set X-Content-Type-Options "nosniff"
-    Header set X-XSS-Protection "1; mode=block"
-    Header set X-Frame-Options "SAMEORIGIN"
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
-    
-    # Cache control for static assets
-    <FilesMatch "\.(ico|pdf|jpg|jpeg|png|gif|webp|js|css|woff|woff2|ttf|svg|eot)$">
-        Header set Cache-Control "max-age=31536000, public"
-    </FilesMatch>
-</IfModule>
+# Cache control for static assets
+<FilesMatch "\.(ico|pdf|jpg|jpeg|png|gif|webp|js|css|woff|woff2|ttf|svg|eot)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
 
 # Enable Keep-Alive
-<IfModule mod_headers.c>
-    Header set Connection keep-alive
-</IfModule>
+Header set Connection keep-alive
 
-# Disable directory browsing
+# Prevent directory listing
 Options -Indexes
 
-# Protect .htaccess file
-<Files .htaccess>
-    Order allow,deny
-    Deny from all
-</Files>
-
 # Protect sensitive files
-<FilesMatch "^(wp-config\.php|php\.ini|\.env|\.git)">
+<FilesMatch "^(\.htaccess|wp-config\.php|php\.ini|\.env|\.git|\.)">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
-# Redirect to HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
+# Custom error pages
+ErrorDocument 404 /404.html
+ErrorDocument 500 /404.html 
