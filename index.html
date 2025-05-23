@@ -17,33 +17,43 @@
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="./fonts/Reross_Quadratic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="images/background.jpg" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@seuperfildotwitter">
-    <meta name="twitter:title" content="Reformei | Reformas de Alto Padrão">
-    <meta name="twitter:description" content="Transforme seu espaço com qualidade e sofisticação. Especialistas em reformas de alto padrão para casas e apartamentos.">
-    <meta name="twitter:image" content="https://www.reformei.com.br/images/og-image.jpg">
-    
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#23CF65">
-    <meta name="msapplication-TileColor" content="#23CF65">
-    <meta name="theme-color" content="#ffffff">
-    
+    <!-- Critical CSS inline -->
     <style>
+        /* Critical CSS for above-the-fold content */
+        :root {
+            --primary: #23CF65;
+            --text: #333;
+            --background: #fff;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Logo styles */
         @font-face {
             font-family: 'Reross Quadratic';
-            src: url('./fonts/Reross_Quadratic.woff2') format('woff2'),
-                 url('./fonts/Reross_Quadratic.otf') format('opentype'); /* Fallback */
+            src: url('./fonts/Reross_Quadratic.woff2') format('woff2');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
             unicode-range: U+000-5FF;
         }
+        
         .logo h1 {
             font-size: 2rem;
             font-weight: 400;
@@ -54,25 +64,38 @@
             line-height: 1;
             transition: color 0.3s ease;
         }
-        /* Include dark mode style for logo h1 if applicable and simple */
-        [data-theme="dark"] .logo h1 {
-             color: var(--primary);
+        
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--background);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        /* Hero section styles */
+        .hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/background.jpg') center/cover;
+            color: white;
+            text-align: center;
         }
     </style>
     
+    <!-- Non-critical CSS -->
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8SfFQdBaE3SOFNw.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8SfFQdBaEylVQ.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Styles -->
-    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <!-- Deferred CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     
-    <!-- Scripts -->
+    <!-- Deferred Scripts -->
     <script src="https://unpkg.com/scrollreveal" defer></script>
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
     <script src="script.js" defer></script>
@@ -217,11 +240,21 @@
                                 <div class="before-after">
                                     <div class="before">
                                         <span>Antes</span>
-                                        <img src="images/Antes e depois/1- sala comercial paulista/antes.jpg" alt="Sala comercial Paulista - Antes">
+                                        <img src="images/Antes e depois/1- sala comercial paulista/antes.jpg" 
+                                             alt="Sala comercial Paulista - Antes"
+                                             loading="lazy"
+                                             width="600"
+                                             height="400"
+                                             decoding="async">
                                     </div>
                                     <div class="after">
                                         <span>Depois</span>
-                                        <img src="images/Antes e depois/1- sala comercial paulista/depois.jpg" alt="Sala comercial Paulista - Depois">
+                                        <img src="images/Antes e depois/1- sala comercial paulista/depois.jpg" 
+                                             alt="Sala comercial Paulista - Depois"
+                                             loading="lazy"
+                                             width="600"
+                                             height="400"
+                                             decoding="async">
                                     </div>
                                 </div>
                                 <h3>Sala Comercial Paulista</h3>
@@ -231,11 +264,21 @@
                                 <div class="before-after">
                                     <div class="before">
                                         <span>Antes</span>
-                                        <img src="images/Antes e depois/2-Apartamento perdizes - reforma completa - fabiana oliveira/antes.jpg" alt="Apartamento Perdizes - Antes">
+                                        <img src="images/Antes e depois/2-Apartamento perdizes - reforma completa - fabiana oliveira/antes.jpg" 
+                                             alt="Apartamento Perdizes - Antes"
+                                             loading="lazy"
+                                             width="600"
+                                             height="400"
+                                             decoding="async">
                                     </div>
                                     <div class="after">
                                         <span>Depois</span>
-                                        <img src="images/Antes e depois/2-Apartamento perdizes - reforma completa - fabiana oliveira/depois.jpg" alt="Apartamento Perdizes - Depois">
+                                        <img src="images/Antes e depois/2-Apartamento perdizes - reforma completa - fabiana oliveira/depois.jpg" 
+                                             alt="Apartamento Perdizes - Depois"
+                                             loading="lazy"
+                                             width="600"
+                                             height="400"
+                                             decoding="async">
                                     </div>
                                 </div>
                                 <h3>Apartamento Perdizes</h3>
@@ -245,15 +288,25 @@
                                 <div class="before-after">
                                     <div class="before">
                                         <span>Antes</span>
-                                        <img src="images/Antes e depois/3- brás/Antes.jpg" alt="Projeto Brás - Antes">
+                                        <img src="images/Antes e depois/3- brás/Antes.jpg" 
+                                             alt="Projeto Brás - Antes"
+                                             loading="lazy"
+                                             width="600"
+                                             height="400"
+                                             decoding="async">
                                     </div>
                                     <div class="after">
                                         <span>Depois</span>
-                                        <img src="images/Antes e depois/3- brás/Depois.jpg" alt="Projeto Brás - Depois">
+                                        <img src="images/Antes e depois/3- brás/Depois.jpg" 
+                                             alt="Projeto Brás - Depois"
+                                             loading="lazy"
+                                             width="600"
+                                             height="400"
+                                             decoding="async">
                                     </div>
                                 </div>
                                 <h3>Projeto Brás</h3>
-                                <p>Renovação completa de espaço comercial</p>
+                                <p>Transformação residencial completa</p>
                             </div>
                             <div class="embla__slide">
                                 <div class="before-after">
@@ -546,6 +599,21 @@
     <script>
         // Update current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
     </script>
 </body>
 </html> 
