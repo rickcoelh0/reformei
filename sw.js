@@ -1,15 +1,13 @@
 const CACHE_NAME = 'reformei-cache-v1';
-const ASSETS_TO_CACHE = [
+const urlsToCache = [
     '/',
     '/index.html',
     '/styles.css',
     '/script.js',
-    '/fonts/Reross_Quadratic.woff2',
     '/images/background.jpg',
+    '/fonts/Reross_Quadratic.woff2',
     'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-    'https://unpkg.com/scrollreveal',
-    'https://unpkg.com/embla-carousel/embla-carousel.umd.js'
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
 ];
 
 // Install event - cache assets
@@ -17,7 +15,8 @@ self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => {
-                return cache.addAll(ASSETS_TO_CACHE);
+                console.log('Opened cache');
+                return cache.addAll(urlsToCache);
             })
     );
 });
@@ -29,6 +28,7 @@ self.addEventListener('activate', event => {
             return Promise.all(
                 cacheNames.map(cacheName => {
                     if (cacheName !== CACHE_NAME) {
+                        console.log('Deleting old cache:', cacheName);
                         return caches.delete(cacheName);
                     }
                 })
@@ -50,22 +50,24 @@ self.addEventListener('fetch', event => {
                 // Clone the request
                 const fetchRequest = event.request.clone();
 
-                return fetch(fetchRequest).then(response => {
-                    // Check if valid response
-                    if (!response || response.status !== 200 || response.type !== 'basic') {
+                return fetch(fetchRequest).then(
+                    response => {
+                        // Check if valid response
+                        if (!response || response.status !== 200 || response.type !== 'basic') {
+                            return response;
+                        }
+
+                        // Clone the response
+                        const responseToCache = response.clone();
+
+                        caches.open(CACHE_NAME)
+                            .then(cache => {
+                                cache.put(event.request, responseToCache);
+                            });
+
                         return response;
                     }
-
-                    // Clone the response
-                    const responseToCache = response.clone();
-
-                    caches.open(CACHE_NAME)
-                        .then(cache => {
-                            cache.put(event.request, responseToCache);
-                        });
-
-                    return response;
-                });
+                );
             })
     );
 }); 
