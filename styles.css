@@ -1368,4 +1368,19 @@ footer .newsletter-form button.btn.primary:hover {
     .menu {
         gap: 1.2rem;
     }
+}
+
+/* Light mode: white links when at the top */
+[data-theme="light"] header:not(.sticky) .menu li a {
+    color: white;
+}
+
+/* Light mode: green links when scrolled down (sticky) */
+[data-theme="light"] header.sticky .menu li a {
+    color: var(--primary);
+}
+
+/* Light mode: white logo when at the top */
+[data-theme="light"] header:not(.sticky) .logo h1 {
+    color: white;
 } 
