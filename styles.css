@@ -952,6 +952,20 @@ nav {
     border-radius: 10px;
 }
 
+.contact-map {
+    flex: 1;
+    min-height: 300px; /* Set a minimum height for smaller screens */
+    border-radius: 15px; /* Add rounded corners */
+    overflow: hidden; /* Ensure the iframe respects the border-radius */
+    box-shadow: 0 4px 15px var(--shadow-dark); /* Add a subtle shadow */
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 /* Footer */
 footer {
     background-color: var(--footer-bg);
