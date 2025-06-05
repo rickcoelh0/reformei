@@ -660,12 +660,12 @@ nav {
 }
 
 [data-theme="dark"] .embla__button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: var(--text);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #333;
 }
 
 [data-theme="dark"] .embla__button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--secondary);
     color: white;
 }
 
@@ -1370,6 +1370,17 @@ footer .newsletter-form button.btn.primary:hover {
     color: #1a1a1a;
 }
 
+/* Dark theme adjustments for room carousel buttons - Corrected */
+[data-theme="dark"] .embla-room__button {
+    background-color: #35503F !important; /* Explicitly use the light mode primary green */
+    color: white !important; /* Keep the icon white */
+}
+
+[data-theme="dark"] .embla-room__button:hover {
+    background-color: #23CF65 !important; /* Explicitly use the light mode secondary green for hover */
+    color: white !important; /* Keep the icon white on hover */
+}
+
 @media (min-width: 1201px) {
     header .container {
         padding: 15px 0;
@@ -1397,4 +1408,190 @@ footer .newsletter-form button.btn.primary:hover {
 /* Light mode: white logo when at the top */
 [data-theme="light"] header:not(.sticky) .logo h1 {
     color: white;
+}
+
+/* Room Carousel Styles */
+.room-carousel {
+    margin-top: 2rem;
+    position: relative;
+}
+
+.embla-room {
+    overflow: hidden;
+}
+
+.embla-room__viewport {
+    overflow: hidden;
+}
+
+.embla-room__container {
+    display: flex;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.embla-room__slide {
+    position: relative;
+    min-width: 100%;
+    padding: 0 1rem;
+}
+
+.embla-room__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.embla-room__button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.embla-room__button:hover {
+    background: var(--primary-dark);
+}
+
+.embla-room__button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Update existing before-after styles */
+.before-after {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.before, .after {
+    flex: 1;
+    position: relative;
+}
+
+.before span, .after span {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.before img, .after img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme adjustments for team members */
+[data-theme="dark"] .team-member h3 {
+    color: var(--primary);
+}
+
+/* Dark theme adjustments for contact info */
+[data-theme="dark"] .info-item h3 {
+    color: var(--primary);
+}
+
+/* Room Carousel Styles */
+.room-carousel {
+    margin-top: 2rem;
+    position: relative;
+}
+
+.embla-room {
+    overflow: hidden;
+}
+
+.embla-room__viewport {
+    overflow: hidden;
+}
+
+.embla-room__container {
+    display: flex;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.embla-room__slide {
+    position: relative;
+    min-width: 100%;
+    padding: 0 1rem;
+}
+
+.embla-room__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.embla-room__button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.embla-room__button:hover {
+    background: var(--primary-dark);
+}
+
+.embla-room__button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Update existing before-after styles */
+.before-after {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.before, .after {
+    flex: 1;
+    position: relative;
+}
+
+.before span, .after span {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.before img, .after img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 } 

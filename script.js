@@ -249,4 +249,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     lazyImages.forEach(img => imageObserver.observe(img));
+
+    // Initialize main project carousel
+    const mainCarousel = document.querySelector('.embla');
+    const mainEmbla = EmblaCarousel(mainCarousel.querySelector('.embla__viewport'), {
+        loop: true,
+        align: 'center',
+        slidesToScroll: 1
+    });
+
+    // Initialize room carousel for Perdizes apartment
+    const roomCarousel = document.querySelector('.embla-room');
+    const roomEmbla = EmblaCarousel(roomCarousel.querySelector('.embla-room__viewport'), {
+        loop: true,
+        align: 'center',
+        slidesToScroll: 1
+    });
+
+    // Add button functionality for main carousel
+    const mainPrevButton = mainCarousel.querySelector('.embla__button--prev');
+    const mainNextButton = mainCarousel.querySelector('.embla__button--next');
+
+    mainPrevButton.addEventListener('click', () => mainEmbla.scrollPrev());
+    mainNextButton.addEventListener('click', () => mainEmbla.scrollNext());
+
+    // Add button functionality for room carousel
+    const roomPrevButton = roomCarousel.querySelector('.embla-room__button--prev');
+    const roomNextButton = roomCarousel.querySelector('.embla-room__button--next');
+
+    roomPrevButton.addEventListener('click', () => roomEmbla.scrollPrev());
+    roomNextButton.addEventListener('click', () => roomEmbla.scrollNext());
 }); 
