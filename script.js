@@ -252,31 +252,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize main project carousel
     const mainCarousel = document.querySelector('.embla');
-    const mainEmbla = EmblaCarousel(mainCarousel.querySelector('.embla__viewport'), {
-        loop: true,
-        align: 'center',
-        slidesToScroll: 1
-    });
+
+    // Log the main carousel element
+    console.log('Main carousel element:', mainCarousel);
+
+    if (mainCarousel) {
+        const mainEmbla = EmblaCarousel(mainCarousel.querySelector('.embla__viewport'), {
+            loop: true,
+            align: 'center',
+            slidesToScroll: 1
+        });
+
+        // Log the Embla instance for the main carousel
+        console.log('Main Embla instance:', mainEmbla);
+
+        // Add button functionality for main carousel
+        const mainPrevButton = mainCarousel.querySelector('.embla__button--prev');
+        const mainNextButton = mainCarousel.querySelector('.embla__button--next');
+
+        if (mainPrevButton && mainNextButton) {
+            mainPrevButton.addEventListener('click', () => mainEmbla.scrollPrev());
+            mainNextButton.addEventListener('click', () => mainEmbla.scrollNext());
+        }
+    }
 
     // Initialize room carousel for Perdizes apartment
     const roomCarousel = document.querySelector('.embla-room');
-    const roomEmbla = EmblaCarousel(roomCarousel.querySelector('.embla-room__viewport'), {
-        loop: true,
-        align: 'center',
-        slidesToScroll: 1
-    });
 
-    // Add button functionality for main carousel
-    const mainPrevButton = mainCarousel.querySelector('.embla__button--prev');
-    const mainNextButton = mainCarousel.querySelector('.embla__button--next');
+    // Log the room carousel element
+    console.log('Room carousel element:', roomCarousel);
 
-    mainPrevButton.addEventListener('click', () => mainEmbla.scrollPrev());
-    mainNextButton.addEventListener('click', () => mainEmbla.scrollNext());
+    if (roomCarousel) {
+        const roomEmbla = EmblaCarousel(roomCarousel.querySelector('.embla-room__viewport'), {
+            loop: true,
+            align: 'center',
+            slidesToScroll: 1
+        });
 
-    // Add button functionality for room carousel
-    const roomPrevButton = roomCarousel.querySelector('.embla-room__button--prev');
-    const roomNextButton = roomCarousel.querySelector('.embla-room__button--next');
+        // Log the Embla instance for the room carousel
+        console.log('Room Embla instance:', roomEmbla);
 
-    roomPrevButton.addEventListener('click', () => roomEmbla.scrollPrev());
-    roomNextButton.addEventListener('click', () => roomEmbla.scrollNext());
+        // Add button functionality for room carousel
+        const roomPrevButton = roomCarousel.querySelector('.embla-room__button--prev');
+        const roomNextButton = roomCarousel.querySelector('.embla-room__button--next');
+
+        if (roomPrevButton && roomNextButton) {
+            roomPrevButton.addEventListener('click', () => roomEmbla.scrollPrev());
+            roomNextButton.addEventListener('click', () => roomEmbla.scrollNext());
+        }
+    }
 }); 
