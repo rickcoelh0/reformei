@@ -1,0 +1,27 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#35503F"/>
+  
+  <!-- Accent bar -->
+  <rect width="1200" height="10" y="315" fill="#23CF65"/>
+  
+  <!-- Main text -->
+  <text x="600" y="200" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#23CF65" text-anchor="middle">
+    Reformei
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="300" font-family="Arial, sans-serif" font-size="48" fill="#FFFFFF" text-anchor="middle">
+    Reformas de Alto Padrão
+  </text>
+  
+  <!-- Description -->
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="36" fill="#E0E0E0" text-anchor="middle">
+    Transforme seu espaço com qualidade
+  </text>
+  
+  <!-- Bottom text -->
+  <text x="600" y="520" font-family="Arial, sans-serif" font-size="28" fill="#23CF65" text-anchor="middle">
+    www.reformei.co
+  </text>
+</svg>

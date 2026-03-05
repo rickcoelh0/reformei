@@ -37,11 +37,11 @@ export const metadata: Metadata = {
     description: 'Transforme seu espaço com qualidade e sofisticação. Especialistas em reformas de alto padrão para casas e apartamentos.',
     images: [
       {
-        url: 'https://reformei.co/og-image.jpg',
+        url: 'https://reformei.co/og-image.svg',
         width: 1200,
         height: 630,
-        alt: 'Reformei',
-        type: 'image/jpeg',
+        alt: 'Reformei - Reformas de Alto Padrão',
+        type: 'image/svg+xml',
       },
     ],
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Reformei - Reformas de Alto Padrão',
     description: 'Transforme seu espaço com qualidade e sofisticação.',
-    images: ['https://reformei.co/twitter-image.jpg'],
+    images: ['https://reformei.co/og-image.svg'],
   },
   robots: {
     index: true,

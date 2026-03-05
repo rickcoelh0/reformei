@@ -19,9 +19,9 @@ export const SITE_CONFIG = {
 export const NAV_LINKS = [
   { label: 'Início', href: '#inicio' },
   { label: 'Qual a pegada?', href: '#como-funciona' },
+  { label: 'Eu já Reformei', href: '#portfolio' },
   { label: 'Orçamentos', href: '#orcamento' },
   { label: 'Parceiros', href: '#parceiros' },
-  { label: 'Eu já Reformei', href: '#portfolio' },
   { label: 'Reformei Express', href: '#express' },
   { label: 'Equipe', href: '#equipe' },
   { label: 'Contato', href: '#contato' },

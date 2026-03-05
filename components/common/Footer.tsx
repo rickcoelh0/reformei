@@ -147,10 +147,7 @@ export const Footer: React.FC = () => {
                 aria-label={link.name}
                 title={link.name}
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  {/* Icon will be rendered based on link.icon */}
-                  <circle cx="12" cy="12" r="10" />
-                </svg>
+                <i className={`fab fa-${link.icon} text-lg`} />
               </a>
             ))}
           </div>
