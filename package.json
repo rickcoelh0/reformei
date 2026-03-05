@@ -1,0 +1,48 @@
+{
+  "name": "reformei",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "latest",
+    "tailwindcss": "latest",
+    "embla-carousel-react": "latest",
+    "embla-carousel-autoplay": "latest",
+    "axios": "latest",
+    "clsx": "latest",
+    "tailwind-merge": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@testing-library/react": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/user-event": "latest",
+    "jest": "latest",
+    "jest-environment-jsdom": "latest",
+    "fast-check": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "@eslint/js": "latest",
+    "typescript-eslint": "latest",
+    "@next/eslint-plugin-next": "latest",
+    "prettier": "latest",
+    "@tailwindcss/forms": "latest",
+    "@tailwindcss/typography": "latest",
+    "@tailwindcss/postcss": "latest",
+    "postcss": "latest"
+  }
+}

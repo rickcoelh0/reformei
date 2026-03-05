@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/* Color Variables - Centralized for easy theme customization */
+:root {
+  /* Primary Colors */
+  --color-primary: #23CF65;
+  --color-primary-dark: #1aa84d;
+  --color-primary-light: #35CF75;
+  
+  /* Secondary Colors */
+  --color-secondary: #35503F;
+  --color-secondary-light: #4a6b52;
+  
+  /* Neutral Colors */
+  --color-text-dark: #111827;
+  --color-text-light: #f1f5f9;
+  --color-border: #e5e7eb;
+  
+  /* Background Colors */
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #1f2937;
+  --color-bg-gray: #f9fafb;
+  --color-bg-gray-dark: #111827;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #35503F;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #23CF65;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #23CF65;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #35503F;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scrollReveal {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Utility classes */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section-title {
+  @apply text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white;
+}
+
+.section-subtitle {
+  @apply text-center text-lg mb-12 text-gray-600 dark:text-gray-400;
+}
+
+.btn-primary {
+  @apply inline-block px-8 py-3 bg-[#23CF65] text-white rounded-full font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-[#1aa84d] hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply inline-block px-8 py-3 bg-white dark:bg-gray-800 text-[#23CF65] dark:text-[#23CF65] rounded-full font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-[#23CF65] hover:text-white dark:hover:bg-[#23CF65];
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .section-title {
+    @apply text-2xl;
+  }
+
+  .section-subtitle {
+    @apply text-base;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-[#23CF65];
+}
+
+/* Skip to main content link */
+.skip-to-main {
+  @apply absolute top-0 left-0 z-50 px-4 py-2 bg-[#23CF65] text-white rounded-b-lg transform -translate-y-full focus:translate-y-0 transition-transform;
+}
